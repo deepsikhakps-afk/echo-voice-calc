@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Echo — Voice Calculator</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="scene">
+    <div class="glow"></div>
+
+    <header class="topbar">
+      <div class="wordmark"><span class="dot"></span>Echo</div>
+      <p class="tagline">Say a number, say a sum. Echo does the rest.</p>
+    </header>
+
+    <main class="console">
+      <!-- Expression / result display -->
+      <section class="display">
+        <div id="heard" class="heard">Tap the mic and speak</div>
+        <div id="expression" class="expression">&nbsp;</div>
+        <div id="result" class="result">0</div>
+      </section>
+
+      <!-- Mic control with waveform -->
+      <section class="mic-zone">
+        <canvas id="waveform" class="waveform" width="300" height="80"></canvas>
+        <button id="micBtn" class="mic-btn" aria-label="Start listening">
+          <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z"/>
+            <path d="M19 11a7 7 0 0 1-14 0"/>
+            <path d="M12 18v3"/>
+          </svg>
+        </button>
+        <div id="micStatus" class="mic-status">idle</div>
+      </section>
+
+      <!-- Quick manual keypad fallback -->
+      <section class="keypad" id="keypad">
+        <button data-key="7">7</button><button data-key="8">8</button><button data-key="9">9</button><button data-key="/">÷</button>
+        <button data-key="4">4</button><button data-key="5">5</button><button data-key="6">6</button><button data-key="*">×</button>
+        <button data-key="1">1</button><button data-key="2">2</button><button data-key="3">3</button><button data-key="-">−</button>
+        <button data-key="0">0</button><button data-key=".">.</button><button data-key="=" class="eq">=</button><button data-key="+">+</button>
+        <button data-key="clear" class="wide">Clear</button>
+      </section>
+
+      <!-- Log of voice commands understood -->
+      <section class="log-panel">
+        <div class="log-title">Command log</div>
+        <ul id="logList" class="log-list"></ul>
+      </section>
+    </main>
+
+    <footer class="hint-bar">
+      <span>Try saying:</span>
+      <button class="hint" data-example>"twelve plus seven"</button>
+      <button class="hint" data-example>"convert 5 kilometers to miles"</button>
+      <button class="hint" data-example>"what is the square root of 81"</button>
+    </footer>
+  </div>
+
+  <script src="js/speech.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
