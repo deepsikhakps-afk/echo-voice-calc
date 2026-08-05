@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root{
+  --bg: #0b0d12;
+  --panel: #12151d;
+  --panel-alt: #171b25;
+  --border: #242938;
+  --text: #e7e9f0;
+  --text-dim: #7d8299;
+  --accent: #7c5cff;
+  --accent-2: #38e6c5;
+  --accent-glow: rgba(124,92,255,0.35);
+  --danger: #ff6b6b;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  min-height:100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-display);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  overflow-x:hidden;
+}
+
+.scene{
+  position:relative;
+  width:100%;
+  max-width:480px;
+}
+
+.glow{
+  position:absolute;
+  top:-120px; left:50%;
+  transform:translateX(-50%);
+  width:420px; height:420px;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+  pointer-events:none;
+  z-index:0;
+}
+
+.topbar{
+  position:relative; z-index:1;
+  text-align:center;
+  margin-bottom:22px;
+}
+.wordmark{
+  font-size:1.6rem;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  letter-spacing:-0.02em;
+}
+.dot{
+  width:10px; height:10px;
+  border-radius:50%;
+  background: var(--accent-2);
+  box-shadow: 0 0 12px var(--accent-2);
+}
+.tagline{
+  color: var(--text-dim);
+  font-size:0.85rem;
+  margin:6px 0 0;
+}
+
+.console{
+  position:relative; z-index:1;
+  background: var(--panel);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:26px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+/* Display */
+.display{
+  text-align:right;
+  margin-bottom:18px;
+  min-height:110px;
+}
+.heard{
+  font-size:0.78rem;
+  color: var(--text-dim);
+  font-style:italic;
+  min-height:16px;
+  text-align:left;
+  margin-bottom:4px;
+}
+.expression{
+  font-family: var(--font-mono);
+  color: var(--text-dim);
+  font-size:1rem;
+  min-height:22px;
+}
+.result{
+  font-family: var(--font-mono);
+  font-size:2.6rem;
+  font-weight:500;
+  color: var(--text);
+  word-break:break-all;
+}
+
+/* Mic zone */
+.mic-zone{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin: 6px 0 20px;
+}
+
+.waveform{
+  width:100%;
+  max-width:280px;
+  height:60px;
+  margin-bottom:6px;
+  opacity:0.9;
+}
+
+.mic-btn{
+  width:66px; height:66px;
+  border-radius:50%;
+  border:1px solid var(--accent);
+  background: linear-gradient(145deg, #1b1436, #0f0c1e);
+  color: var(--accent-2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition: box-shadow 0.2s ease, transform 0.15s ease;
+  box-shadow: 0 0 0 rgba(124,92,255,0);
+}
+.mic-btn:hover{ transform: scale(1.04); }
+.mic-btn.listening{
+  animation: pulse 1.4s ease-in-out infinite;
+  border-color: var(--accent-2);
+  color: var(--accent-2);
+}
+@keyframes pulse{
+  0%{ box-shadow: 0 0 0 0 var(--accent-glow); }
+  70%{ box-shadow: 0 0 0 18px rgba(124,92,255,0); }
+  100%{ box-shadow: 0 0 0 0 rgba(124,92,255,0); }
+}
+
+.mic-status{
+  margin-top:8px;
+  font-size:0.75rem;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  color: var(--text-dim);
+}
+.mic-status.active{ color: var(--accent-2); }
+.mic-status.error{ color: var(--danger); }
+
+/* Keypad */
+.keypad{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:8px;
+  margin-bottom:18px;
+}
+.keypad button{
+  background: var(--panel-alt);
+  border:1px solid var(--border);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size:1rem;
+  padding:12px 0;
+  border-radius:10px;
+  cursor:pointer;
+  transition: background 0.15s ease;
+}
+.keypad button:hover{ background:#1e2330; }
+.keypad button.eq{
+  background: var(--accent);
+  color:#0b0d12;
+  border-color: var(--accent);
+  font-weight:700;
+}
+.keypad button.wide{
+  grid-column: span 4;
+  color: var(--danger);
+  border-color: rgba(255,107,107,0.3);
+}
+
+/* Log panel */
+.log-panel{
+  border-top:1px solid var(--border);
+  padding-top:14px;
+}
+.log-title{
+  font-size:0.72rem;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  color: var(--text-dim);
+  margin-bottom:8px;
+}
+.log-list{
+  list-style:none;
+  margin:0; padding:0;
+  max-height:120px;
+  overflow-y:auto;
+  font-family: var(--font-mono);
+  font-size:0.8rem;
+}
+.log-list li{
+  padding:6px 0;
+  border-bottom:1px dashed var(--border);
+  color: var(--text-dim);
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+.log-list li span.result-val{ color: var(--accent-2); }
+
+/* Hint bar */
+.hint-bar{
+  position:relative; z-index:1;
+  margin-top:18px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+  justify-content:center;
+  font-size:0.78rem;
+  color: var(--text-dim);
+}
+.hint{
+  background: var(--panel-alt);
+  border:1px solid var(--border);
+  color: var(--text-dim);
+  padding:6px 12px;
+  border-radius:20px;
+  cursor:pointer;
+  font-family: var(--font-mono);
+  font-size:0.72rem;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.hint:hover{ border-color: var(--accent); color: var(--text); }
+
+@media (max-width: 420px){
+  .result{ font-size:2.1rem; }
+  .console{ padding:18px; }
+}
