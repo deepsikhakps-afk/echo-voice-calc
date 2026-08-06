@@ -14,3 +14,4 @@ A no-database, browser-only calculator you can talk to. Say a sum, a unit conver
 - **On-screen keypad** for manual entry, and clickable example chips to try common phrases instantly
 - **Command log** — a running history of the last 12 calculations understood
 - **Distinctive dark UI** — glowing accent, pulsing mic button, monospace result display
+## Tech Stack
