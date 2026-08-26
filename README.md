@@ -75,7 +75,7 @@ voice-calc/
 - If the mic is unavailable or unsupported, the on-screen keypad and hint chips still let you calculate and hear results without voice input.
 - Microphone access requires HTTPS or `localhost` — it will not work over a plain `file://` path in most browsers.
 
-Screenshots
+Screenshot
 
 ## Possible Extensions
 
