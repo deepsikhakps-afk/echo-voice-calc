@@ -76,6 +76,7 @@ voice-calc/
 - Microphone access requires HTTPS or `localhost` — it will not work over a plain `file://` path in most browsers.
 
 Screenshots
+![alt text](image.png)
 
 ## Possible Extensions
 
