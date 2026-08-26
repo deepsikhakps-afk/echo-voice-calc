@@ -83,7 +83,7 @@ Screenshots
 - More unit categories (volume, area, currency via a live-rate API)
 - Wake-word activation ("Hey Echo…") instead of a manual mic button
 - Light/dark theme toggle
-- Export command log as CS
+- Export command log as CSV
 
 ## License
 
