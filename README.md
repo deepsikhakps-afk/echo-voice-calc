@@ -77,7 +77,7 @@ voice-calc/
 
 Screenshots
 
-## Possible Extensions
+## Possible Extension
 
 - Multi-step conversation memory ("add 5 to that")
 - More unit categories (volume, area, currency via a live-rate API)
