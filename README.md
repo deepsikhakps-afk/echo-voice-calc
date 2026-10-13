@@ -81,9 +81,7 @@ Screenshots
 ## Possible Extensions
 
 - Multi-step conversation memory ("add 5 to that")
-- More unit categories (volume, area, currency via a live-rate API)
-- Wake-word activation ("Hey Echo…") instead of a manual mic button
-- Light/dark theme toggle
+- More unit categories (volume
 - Export command log as CSV
 
 ## License
