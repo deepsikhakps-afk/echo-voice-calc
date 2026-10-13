@@ -88,4 +88,4 @@ Screenshots
 
 ## License
 
-Free to use for academic/educational purposes.
+Free to use for academic/
